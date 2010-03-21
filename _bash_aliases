@@ -1,0 +1,45 @@
+#!/bin/bash
+# this is sourced in ~/.bashrc
+
+# add aliases here on a whim
+alias realias='$EDITOR ~/.bash_aliases; source ~/.bash_aliases'
+
+# Do I have Random::Module installed and what version it is?
+function pmver () { 
+    echo -n "$1 is ";
+    perl -M$1 -E"say $1->VERSION" 2>/dev/null || echo unavailable 
+}
+
+# functions to quickly set cpu governor when out of black goats for cpufreqd
+function cpu-save() {
+    for cpu in 0 1 ; do
+        sudo cpufreq-set -g powersave -c $cpu
+    done
+}   
+
+function cpu-perf() {
+    for cpu in 0 1 ; do
+        sudo cpufreq-set -g performance -c $cpu
+    done
+}   
+
+# function to quickly delete given line in known_hosts
+# TODO: write something saner using ssh-keygen -F and -R
+function ssh-del() {
+    sed -i -e ${1}d ~/.ssh/known_hosts
+}
+
+# experimental use of vim for manpages
+vman() {
+    if [ $# -eq 0 ]; then
+        /usr/bin/man
+    else
+        if man -w $* >/dev/null 2>/dev/null
+        then
+            /usr/bin/man $* | col -b | vim -c 'set ft=man nomod' -
+        else
+            echo No man page for $*
+        fi
+    fi
+}
+
