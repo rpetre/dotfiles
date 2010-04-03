@@ -4,6 +4,11 @@
 # add aliases here on a whim
 alias realias='$EDITOR ~/.bash_aliases; source ~/.bash_aliases'
 
+# since this might go to a public repo. move private stuff to a different file
+if [ -f ~/.bash_private ]; then
+    . ~/.bash_private
+fi
+
 # Do I have Random::Module installed and what version it is?
 function pmver () { 
     echo -n "$1 is ";
@@ -43,3 +48,23 @@ vman() {
     fi
 }
 
+declare -A mailman_lists
+mailman_lists[humor]="http://lists.lug.ro/mailman/admindb/humor"
+mailman_lists[anunt]="http://lists.lug.ro/mailman/admindb/anunt"
+mailman_lists[prolinux]="http://lists.lug.ro/mailman/admindb/prolinux"
+mailman_lists[webteam]="http://lists.lug.ro/mailman/admindb/webteam"
+
+function mmurl {
+    if [ -n "${mailman_passwords[$1]}" ]; then
+        echo "${mailman_lists[$1]}?admpw=${mailman_passwords[$1]}"
+    else
+        echo "${mailman_lists[$1]}"
+    fi
+}
+
+function mmcheck {
+    [ ${#mailman_lists[*]} -eq 0 ] && return 0
+    for list in ${!mailman_lists[*]} ; do
+        python ~/bin/mmfold.py $(mmurl $list)
+    done
+}
