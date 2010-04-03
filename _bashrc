@@ -123,5 +123,10 @@ if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
 
+# disable beeping when in a virtual terminal
+if [ $TERM = "linux" ];then
+    setterm -blength
+fi
+
 
 # vim:ft=sh
