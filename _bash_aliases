@@ -51,6 +51,8 @@ vman() {
 declare -A mailman_lists
 mailman_lists[humor]="http://lists.lug.ro/mailman/admindb/humor"
 mailman_lists[anunt]="http://lists.lug.ro/mailman/admindb/anunt"
+mailman_lists[org]="http://lists.lug.ro/mailman/admindb/org"
+mailman_lists[rlug]="http://lists.lug.ro/mailman/admindb/rlug"
 mailman_lists[prolinux]="http://lists.lug.ro/mailman/admindb/prolinux"
 mailman_lists[webteam]="http://lists.lug.ro/mailman/admindb/webteam"
 
@@ -68,3 +70,5 @@ function mmcheck {
         python ~/bin/mmfold.py $(mmurl $list)
     done
 }
+
+alias rot13='perl -ple "y/A-Za-z/N-ZA-Mn-za-m/"'
