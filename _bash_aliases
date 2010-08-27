@@ -72,3 +72,11 @@ function mmcheck {
 }
 
 alias rot13='perl -ple "y/A-Za-z/N-ZA-Mn-za-m/"'
+
+# Extract password from gpg storage for host $1
+function getpass () { 
+    gpg  --batch --decrypt /opt/work/safebox/cvs/passwords/root.linux.passwords.asc 2>/dev/null | perl -le 'while (<STDIN>) { @F = split ; if ($F[3] eq $ARGV[0]) 
+            { print $F[-1]; print STDERR qq(password for $ARGV[0] is in the clipboard); exit }} 
+            print STDERR qq($ARGV[0] not found in password file)' $1 | xclip
+}
+
