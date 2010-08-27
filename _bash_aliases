@@ -67,11 +67,13 @@ function mmurl {
 function mmcheck {
     [ ${#mailman_lists[*]} -eq 0 ] && return 0
     for list in ${!mailman_lists[*]} ; do
-        python ~/bin/mmfold.py $(mmurl $list)
+        python2.5 ~/bin/mmfold.py $(mmurl $list)
     done
 }
 
 alias rot13='perl -ple "y/A-Za-z/N-ZA-Mn-za-m/"'
+
+alias gist='nopaste --private --service Gist'
 
 # Extract password from gpg storage for host $1
 function getpass () { 
