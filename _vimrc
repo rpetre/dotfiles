@@ -9,6 +9,9 @@ set background=dark
 " my template files
 au BufNewFile *.pl 0r ~/.vim/templates/perl.tmpl
 
+" ssh_config stubs
+au BufNewFile,BufRead */.ssh/*.conf setf sshconfig
+
 " ikiwiki editing
 au BufNewFile,BufRead *.mdwn set ft=ikiwiki
 au BufNewFile,BufRead *.mdwn set tw=90
