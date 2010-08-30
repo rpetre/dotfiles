@@ -73,7 +73,7 @@ function mmcheck {
 
 alias rot13='perl -ple "y/A-Za-z/N-ZA-Mn-za-m/"'
 
-alias gist='nopaste --private --service Gist'
+alias gist='nopaste --private --service Gist --language plain'
 
 # Extract password from gpg storage for host $1
 function getpass () { 
