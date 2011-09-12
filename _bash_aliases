@@ -67,13 +67,15 @@ function mmurl {
 function mmcheck {
     [ ${#mailman_lists[*]} -eq 0 ] && return 0
     for list in ${!mailman_lists[*]} ; do
-        python2.5 ~/bin/mmfold.py $(mmurl $list)
+        python ~/bin/mmfold.py $(mmurl $list)
     done
 }
 
 alias rot13='perl -ple "y/A-Za-z/N-ZA-Mn-za-m/"'
 
 alias gist='nopaste --private --service Gist --language plain'
+
+alias rlug='nopaste --service Rlug --nick rpetre --language plain'
 
 # Extract password from gpg storage for host $1
 function getpass () { 
@@ -82,3 +84,4 @@ function getpass () {
             print STDERR qq($ARGV[0] not found in password file)' $1 | xclip
 }
 
+alias vimhelp='vim -c "he|on"'
