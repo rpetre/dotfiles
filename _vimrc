@@ -54,3 +54,4 @@ else
     set nomodeline
 endif
 
+set exrc " for vroom
