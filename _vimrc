@@ -9,6 +9,9 @@ set background=dark
 " my template files
 au BufNewFile *.pl 0r ~/.vim/templates/perl.tmpl
 
+" cfengine configs
+au BufNewFile,BufRead /*var/cfengine/*/inputs/* set filetype=cfengine
+
 " ssh_config stubs
 au BufNewFile,BufRead */.ssh/*.conf setf sshconfig
 
@@ -55,3 +58,7 @@ else
 endif
 
 set exrc " for vroom
+
+" netrw stuff
+"let g:netrw_browse_split=2
+let g:netrw_altv=1
