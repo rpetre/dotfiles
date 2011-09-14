@@ -1,0 +1,4 @@
+!not very glad of hardcoding my home, need to RTFM some more about cpp
+#include "/home/petre/.xrdb/urxvt.xrdb"
+!#include "/home/petre/.xrdb/solarized.xrdb"
+#include "/home/petre/.xrdb/colors.xrdb"

@@ -1,0 +1,91 @@
+! vi:ft=xdefaults
+! colors
+URxvt.background:           #000000
+URxvt.foreground:           #ffffff
+URxvt.bordercolor:          #919191
+URxvt.fading:               25 !! darken percent when out of focus
+URxvt.mouseWheelScrollPage: true
+URxvt.cursorsColor:         green
+! URxvt.cursorColor:        #8b0000
+! URxvt.cursorColor2:       #808080
+! URxvt.cursorUnderline:    true
+URxvt.cursorBlink: true
+! URxvt*underlineColor:     yellow
+! perl
+URxvt.perl-lib:             /home/petre/.urxvt/perl:/home/petre/.urxvt
+! URxvt.perl-ext: default,matcher,searchable-scrollback,tabbedex
+URxvt.perl-ext-common:      default,matcher,tabbedex,readline,mouse-wheel
+!! ,searchable-scrollback,readline,selection
+!! URxvt.keysym.C-q: perl:tabbedex:new_tab
+URxvt.urlLauncher:          sensible-browser
+! URxvt.matcher.rend.0:       Uline Bold fg8 bg1
+URxvt.matcher.rend.0:       Uline Bold
+URxvt.matcher.button:       1
+URxvt.colorUL:              #86a2be
+URxvt.preeditType:          OnTheSpot,None
+! scroll stuff
+URxvt.scrollstyle:          plain
+URxvt.secondaryScroll:      true
+URxvt.scrollBar:            false
+URxvt.scrollKey:            on
+URxvt.scrollTtyOutput:      on
+! URxvt.scrollTtyKeyPress:  false
+URxvt.visualBell:           true
+URxvt.urgentOnBell:         false
+URxvt.insecure:             true
+! URxvt*meta:                 ignore
+! font
+! URxvt.font:                 7x14
+! Urxvt.boldfont:             7x14bold
+!URxvt.xftAntialias:         true
+URxvt.xftAntialias:         true
+!URxvt.font:                 xft:Terminus:regular:pixelsize=14:autohint=true
+!URxvt.boldfont:             xft:Terminus:bold:pixelsize=14:autohint=true
+!URxvt.italicFont:           xft:Terminus:italic:pixelsize=14:autohint=true
+!URxvt.boldItalicFont:       xft:Terminus:bold:italic:pixelsize=14:autohint=true
+URxvt.font:                 xft:DejaVu Sans Mono:regular:pixelsize=11:autohint=true
+URxvt.boldfont:             xft:DejaVu Sans Mono:bold:pixelsize=11:autohint=true
+URxvt.italicFont:           xft:DejaVu Sans Mono:italic:pixelsize=11:autohint=true
+URxvt.boldItalicFont:       xft:DejaVu Sans Mono:bold:italic:pixelsize=11:autohint=true
+! misc
+URxvt*depth:                32
+URxvt*title:                terminal
+! URxvt.geometry:           140x64 !! tot ecranu
+! URxvt.geometry:           103x33 !! old size -- 1280/1024
+URxvt.geometry:             130x60
+URxvt.c132:                 true
+URxvt.loginShell:           true
+URxvt.utmpInhibit:          true
+URxvt.messages:             false
+URxvt.appcursorDefault:     true
+URxvt.appkeypadDefault:     false
+URxvt.fullCursor:           true
+URxvt.titleBar:             false
+URxvt.dynamicColors:        true
+URxvt.eightBitInput:        true
+URxvt.eightBitOutput:       true
+URxvt.highlightSelection:   false
+URxvt.internalBorder:       4
+URxvt.alwaysUseMods:        true
+URxvt.colorMode:            true
+URxvt.colorBD:              #66FFFF
+URxvt.colorBL:              #CC0000
+URxvt.colorRV:              #003366
+! highlightColor does funny things to the colors while active in some apps (aptitude)
+!URxvt.highlightColor:       #339999
+URxvt.colorBDMode:          on
+URxvt.colorRLMode:          on
+URxvt.colorRVMode:          on
+URxvt.colorULMode:          on
+URxvt.veryBoldColors:       1
+! General
+! URxvt.termName:           rxvt-256color
+URxvt.saveLines:            20000
+! URxvt*override-redirect:  false
+! URxvt*borderLess:         false
+URxvt*internalBorder:       1
+URxvt*externalBorder:       1
+! Pseudo Transparency
+URxvt*shading:              30
+URxvt*transparent:          false
+
