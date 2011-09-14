@@ -80,7 +80,7 @@ GITPS1='$(__git_ps1 ":%s")'
 PS1='${debian_chroot:+($debian_chroot)}'"${GREEN}\u@\h${NORM}:${BLUE}\w${NORM}${YELLOW}${GITPS1}${NORM} \$ "
 
 # special settings for my workstation
-if [ "$(hostname)" = "rpetre" ]
+if [ "$(hostname)" = "rpetre" ]; then
     PS1='${debian_chroot:+($debian_chroot)}'"${CYAN}\u@\h${NORM}:${BLUE}\w${NORM}${YELLOW}${GITPS1}${NORM} \$ "
 fi
 
@@ -146,7 +146,7 @@ if [ $TERM = "linux" ];then
 fi
 
 # special settings for my workstation
-if [ "$(hostname)" = "rpetre" ]
+if [ "$(hostname)" = "rpetre" ]; then
     eval `keychain --inherit local-once --quiet --eval id_dsa 4B57A66E`
 fi
 
