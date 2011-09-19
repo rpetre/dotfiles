@@ -31,6 +31,8 @@ set expandtab
 set shiftwidth=4
 " indent/outdent to nearest tabstops
 set shiftround
+" better tab-completion behaviour
+set wildmode=longest,list:longest,list:full
 
 " no backup-files like bla~ 
 set nobackup
