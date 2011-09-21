@@ -1,0 +1,3 @@
+set nohlsearch
+highlight Normal guifg=white guibg=black
+set exrc
