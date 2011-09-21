@@ -48,7 +48,7 @@ URxvt.boldfont:             xft:DejaVu Sans Mono:bold:pixelsize=11:autohint=true
 URxvt.italicFont:           xft:DejaVu Sans Mono:italic:pixelsize=11:autohint=true
 URxvt.boldItalicFont:       xft:DejaVu Sans Mono:bold:italic:pixelsize=11:autohint=true
 ! misc
-URxvt*depth:                32
+URxvt*depth:                24
 URxvt*title:                terminal
 ! URxvt.geometry:           140x64 !! tot ecranu
 ! URxvt.geometry:           103x33 !! old size -- 1280/1024
