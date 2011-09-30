@@ -85,3 +85,70 @@ function getpass () {
 }
 
 alias vimhelp='vim -c "he|on"'
+
+
+function ec2-setup () {
+# ec2 setup, based on  https://github.com/fapestniegd/smegami/blob/master/ec2-setup
+# has been tested only on a scratch install, so when in doubt, backup your certs and wipe EC2_HOME
+
+EC2_AMITOOL_HOME="$EC2_HOME/ec2-ami-tools"
+EC2_APITOOL_HOME="$EC2_HOME/ec2-api-tools"
+
+AMI_BIN=${EC2_AMITOOL_HOME}/bin/
+API_BIN=${EC2_APITOOL_HOME}/bin/
+
+AMITOOLS_SOURCE="http://s3.amazonaws.com/ec2-downloads/ec2-ami-tools.zip"
+AMITOOLS_TARBALL="/tmp/ec2-ami-tools.zip"
+AMITOOLS_BASEDIR="${EC2_AMITOOL_HOME}"
+
+APITOOLS_SOURCE="http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip"
+APITOOLS_TARBALL="/tmp/ec2-api-tools.zip"
+APITOOLS_BASEDIR="${EC2_APITOOL_HOME}"
+
+if [ ! -d "$EC2_HOME" ]; then
+    mkdir -p "$EC2_HOME/bin"
+    mkdir -p "$EC2_HOME/lib"
+    mkdir -p "$EC2_HOME/certs"
+    NEW_INSTALL=yes;
+fi
+#
+################################################################################
+
+################################################################################
+# AMI tools
+#
+if [ ! -f ${AMITOOLS_TARBALL} ];then
+    wget -qO ${AMITOOLS_TARBALL} ${AMITOOLS_SOURCE};
+fi
+if [ ! -d ${AMITOOLS_BASEDIR} ];then
+    TMPDIR=$(mktemp -d /tmp/ec2.XXXX)
+    (cd ${TMPDIR}; unzip -qq ${AMITOOLS_TARBALL})
+    mv $(ls -1d ${TMPDIR}/ec2-ami-*) ${AMITOOLS_BASEDIR}
+    rm -fr ${TMPDIR}
+    cp -a  ${AMITOOLS_BASEDIR}/bin/* $EC2_HOME/bin/
+    cp -a  ${AMITOOLS_BASEDIR}/lib/* $EC2_HOME/lib/
+fi
+
+
+################################################################################
+# API tools
+#
+if [ ! -f ${APITOOLS_TARBALL} ];then
+    wget -qO ${APITOOLS_TARBALL} ${APITOOLS_SOURCE};
+fi
+if [ ! -d ${APITOOLS_BASEDIR} ];then
+    TMPDIR=$(mktemp -d /tmp/ec2.XXXX)
+    (cd ${TMPDIR}; unzip -qq ${APITOOLS_TARBALL})
+    mv $(ls -1d ${TMPDIR}/ec2-api-*) ${APITOOLS_BASEDIR}
+    rm -fr ${TMPDIR}
+    cp -a  ${APITOOLS_BASEDIR}/bin/* $EC2_HOME/bin/
+    cp -a  ${APITOOLS_BASEDIR}/lib/* $EC2_HOME/lib/
+fi
+#
+################################################################################
+
+if [ -n "$NEW_INSTALL" ]; then
+    echo "please add your certificates in $EC2_HOME/certs and update your EC2_PRIVATE_KEY and EC2_CERT"
+fi
+
+}
