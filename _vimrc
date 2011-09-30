@@ -27,6 +27,8 @@ set backspace=indent,eol,start
 set tabstop=4
 " convert all tabs to space
 set expandtab
+" make the backspace key feel 'right' about tabs
+set softtabstop=4
 " indent/outdent by four columns
 set shiftwidth=4
 " indent/outdent to nearest tabstops
